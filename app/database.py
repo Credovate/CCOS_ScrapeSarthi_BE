@@ -1,5 +1,5 @@
-from motor.motor_asyncio import AsyncIOMotorClient
-from .config import MONGO_DETAILS, DATABASE_NAME
+from pymongo import MongoClient
 
-client = AsyncIOMotorClient(MONGO_DETAILS)
-db = client[DATABASE_NAME]
+# MongoDB connection (synchronous)
+client = MongoClient("mongodb://localhost:27017")
+db = client["ccos_scrapesarthi"]

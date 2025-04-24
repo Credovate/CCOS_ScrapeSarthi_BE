@@ -1,7 +1,10 @@
 from fastapi import FastAPI
-from .posts.api import router as post_router
+from app.posts.api import router as posts_router
 
-app = FastAPI(title="Government Job Form API")
+app = FastAPI()
 
-# Register routes directly
-app.include_router(post_router, prefix="/posts", tags=["Posts"])
+app.include_router(posts_router, prefix="/api/v1")
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the CCOS Scrapesarthi API"}
